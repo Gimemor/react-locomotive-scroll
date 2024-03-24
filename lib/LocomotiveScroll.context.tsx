@@ -45,8 +45,8 @@ export function LocomotiveScrollProvider({
   useEffect(() => {
     ;(async () => {
       try {
-        const LocomotiveScroll = (await import('locomotive-scroll')).default
-
+        // @ts-ignore
+        const LoconativeScroll = (await import('loconative-scroll')).default
         const dataScrollContainer = document.querySelector('[data-scroll-container]')
 
         if (!dataScrollContainer) {
@@ -55,7 +55,7 @@ export function LocomotiveScrollProvider({
           )
         }
 
-        LocomotiveScrollRef.current = new LocomotiveScroll({
+        LocomotiveScrollRef.current = new LoconativeScroll({
           el: dataScrollContainer ?? undefined,
           ...options,
         })
