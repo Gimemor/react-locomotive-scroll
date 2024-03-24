@@ -22,7 +22,10 @@
     "build": "rm -rf ./module && tsc",
     "lint": "eslint --quiet",
     "format": "prettier --debug-check lib/**/*.{ts,tsx}",
+    "prepare:husky": "husky install && sh ./husky.sh",
+    "prepare": "yarn prepare:husky && yarn lint && yarn format && yarn build",
     "pre-commit": "yarn lint && yarn format && lint-staged",
+    "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
     "release": "dotenv release-it --",
     "pre-release": "dotenv release-it major --preRelease=beta --"
   },
